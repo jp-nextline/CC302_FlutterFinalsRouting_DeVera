@@ -14,19 +14,25 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 1;
 
   final List<Widget> _pages = [
+    const SamplePage(),
     const HomePage(),
     const ProfilePage(),
-    const SamplePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentIndex == 1 ? 'Home' : _currentIndex == 2 ? 'Profile' : 'Sample', style: const TextStyle(fontWeight: FontWeight.bold
-        )
+        title: Text(
+          _currentIndex == 0
+              ? 'Sample'
+              : _currentIndex == 1
+                  ? 'Home'
+                  : 'Profile',
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
-
         centerTitle: true,
         elevation: 2,
         surfaceTintColor: Colors.transparent,
@@ -34,17 +40,15 @@ class _MainScreenState extends State<MainScreen> {
 
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 400),
-        
         transitionBuilder: (child, animation) {
           return FadeTransition(
             opacity: animation,
             child: child,
           );
         },
-
         child: _pages[_currentIndex],
       ),
-      
+
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
@@ -52,29 +56,24 @@ class _MainScreenState extends State<MainScreen> {
             _currentIndex = index;
           });
         },
-
         destinations: const [
-
           NavigationDestination(
             icon: Icon(Icons.article),
             selectedIcon: Icon(Icons.article_outlined),
             label: 'Sample',
           ),
-
           NavigationDestination(
             icon: Icon(Icons.home),
             selectedIcon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
-
           NavigationDestination(
             icon: Icon(Icons.person),
             selectedIcon: Icon(Icons.person_outlined),
             label: 'Profile',
           ),
         ],
-      )
+      ),
     );
   }
 }
-

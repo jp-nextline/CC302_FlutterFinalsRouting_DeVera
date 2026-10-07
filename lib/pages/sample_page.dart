@@ -1,27 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class SamplePage extends StatelessWidget {
-//   const SamplePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Center(
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Icon(Icons.article, size:80
-//           ),
-
-//           SizedBox(height: 20),
-//           Text('Sample Page', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold
-//           ),
-//           ),
-//         ]
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 
 class SamplePage extends StatefulWidget {
@@ -32,7 +8,6 @@ class SamplePage extends StatefulWidget {
 }
 
 class _SamplePageState extends State<SamplePage> {
-  // List of items
   final List<String> items = [
     'Item 1',
     'Item 2',
@@ -40,7 +15,6 @@ class _SamplePageState extends State<SamplePage> {
     'Item 4',
   ];
 
-  // Delete an item from the list
   void deleteItem(int index) {
     setState(() {
       items.removeAt(index);
